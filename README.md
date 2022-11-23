@@ -68,8 +68,8 @@ The service will retry sending a failed message 5 times before discarding it.
 There are three services provided by the project:
 
 - A listener service that subscribes to a RabbitMQ queue.
-- An SMS content service that formats the messages to be sent
-- An SMS send service that pushes the message to an external SMS proxy for delivery
+- An EMail content service that formats the messages to be sent
+- An EMail send service that pushes the message to an external SMS proxy for delivery
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -109,6 +109,8 @@ AMQP_FILTER=<The routing key to receive messages for>
 EMAIL_BASEPATH=<The fully qualified URL of the web page that verifies the change>
 EMAIL_PROXY_URL=<The fully qualified URL of the email proxy service>
 EMAIL_PROXY_KEY=<The API key to use for the email proxy service>
+EMAIL_SENDER_ADRESS=<The sending email address>
+EMAIL_SENDER_NAME=<The readable name of the sender>
 ```
 
 ## Local environment with docker
@@ -124,9 +126,9 @@ Ensure `.env` contains
 ```env
 AMQP_URI=amqp://user:password@localhost:5672
 AMQP_EXCHANGE=gdi-about-me-person-changed
-AMQP_QUEUE=sms-queue
-AMQP_FILTER=phone.changed
-EMAIL_BASEPATH=https://helsingborg.se/verify
+AMQP_QUEUE=mail-queue
+AMQP_FILTER=email.changed
+EMAIL_BASEPATH=https://helsingborg.se/verify?mail=
 EMAIL_PROXY_URL=<Secret, provided by devops>
 EMAIL_PROXY_KEY=<Secret, provided by devops>
 
