@@ -38,6 +38,5 @@ COPY --from=deps /deps/node_modules /usr/src/app/node_modules/
 COPY --from=deps /deps/package.json /usr/src/package.json
 COPY --from=builder /usr/src/app/dist ./dist
 COPY --from=builder /usr/src/app/index.js ./index.js
-COPY --from=builder /usr/src/app/openapi.yml /usr/src/app/openapi.yml
 
 CMD ["index.js"]
