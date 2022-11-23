@@ -4,21 +4,26 @@ export interface Services {
     sendService: SendService,
 }
 export interface SendService {
-    send: ({ receiver, message } : SmsMessage) => Promise<void>
+    send: (to: string, message: MailContent) => Promise<void>
 }
-export interface ContentService {
-    build: (message: MqMessageBody) => Promise<string>
+export interface MailContent {
+    subject: string;
+    body: string;
+}
+export interface MailMessage extends MailContent{
+    to: string;
+    from: string;
+    from_name: string;
 }
 
+export interface ContentService {
+    build: (message: MqMessageBody) => Promise<MailContent>
+}
 export interface ListenerService {
     listen: (handler: (message: MqMessageBody) => Promise<void> ) => Promise<void>
 }
-export interface SmsMessage {
-    receiver: string;
-    message: string;
-}
 export interface MqMessageBody {
-    number: string;
+    address: string;
     verificationCode: string;
     isVerified: false;
     verifiedDate: string | null;
