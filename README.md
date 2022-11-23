@@ -26,7 +26,7 @@
     <img src="docs/images/hbg-github-logo-combo.png" alt="Logo" width="300">
   </a>
 </p>
-<h1>GDI SMS service</h1>
+<h1>GDI EMAIL service</h1>
 <p>
   <br />
   <a href="https://github.com/helsingborg-stad/gdi-template/issues">Report Bug</a>
