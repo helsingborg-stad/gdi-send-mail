@@ -1,12 +1,12 @@
-import { getContentServiceFromEnv } from './services/content-service'
-import { getListenerServiceFromEnv } from './services/listener-service'
-import { getSendServiceFromEnv } from './services/send-service'
+import { getContentServiceFromEnv } from './services/content/service'
+import { getQueueServiceFromEnv } from './services/queue/service'
+import { getEmailServiceFromEnv } from './services/email/service'
 import { Services } from './types'
 
 const createServicesFromEnv = (): Services => ({
-	listenerService: getListenerServiceFromEnv(),
+	queueService: getQueueServiceFromEnv(),
 	contentService: getContentServiceFromEnv(),
-	sendService: getSendServiceFromEnv(),
+	emailService: getEmailServiceFromEnv(),
 })
 
 export { createServicesFromEnv }

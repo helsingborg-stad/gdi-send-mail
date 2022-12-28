@@ -1,10 +1,16 @@
-import { getContentService, formatContent } from '../services/content-service'
+import { getContentService } from '../services/content/service'
 
 it('returns a templated string with an injected verificationcode', async () => {
-	expect(await getContentService('<base_path>').build({
+	const verificationCode = 'dcd77d41-c1fa-4d90-851a-4d5f03d0183a'
+	const basePath = 'https://mypage'
+	
+	expect(await getContentService(basePath).build({
 		address: 'test@test.se',
-		verificationCode: 'dcd77d41-c1fa-4d90-851a-4d5f03d0183a',
+		verificationCode,
 		isVerified: false,
 		verifiedDate: null,
-	})).toEqual(formatContent('dcd77d41-c1fa-4d90-851a-4d5f03d0183a', '<base_path>'))
+	})).toEqual({
+		subject: basePath,
+		body: verificationCode,
+	})
 })

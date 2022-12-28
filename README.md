@@ -101,17 +101,9 @@ DEBUG=* yarn start
 
 The service is configured through standard .env file
 
-```sh
-AMQP_URI=<The fully qualified uri of the AMPQ exchange>
-AMQP_EXCHANGE=<The name of the AMPQ broker>
-AMQP_QUEUE=<The name of the queue to receive messages from>
-AMQP_FILTER=<The routing key to receive messages for>
-EMAIL_BASEPATH=<The fully qualified URL of the web page that verifies the change>
-EMAIL_PROXY_URL=<The fully qualified URL of the email proxy service>
-EMAIL_PROXY_KEY=<The API key to use for the email proxy service>
-EMAIL_SENDER_ADRESS=<The sending email address>
-EMAIL_SENDER_NAME=<The readable name of the sender>
-```
+- [Content provider](src/services/content/README.md)
+- [Mail send provider](src/services/email/README.md)
+- [Mail queue provider](src/services/queue/README.md)
 
 ## Local environment with docker
 
