@@ -8,7 +8,7 @@ import { tryCreateHelsingborgFromEnv } from './providers/helsingborg'
 export type ContentBuildProvider = (message: MessageBody) => Promise<MailContent>
 
 /**
- * The signature of the Content service
+ * The signature of the Contentservice
  */
 export interface ContentService {
     build: ContentBuildProvider
@@ -21,7 +21,7 @@ const missingProvider = (): ContentBuildProvider => { throw Error('Missing Email
 
 /**
  * Service instantiation from environment configuration
- * @returns An EmailService instance
+ * @returns An ContentService instance
  */
 export const getContentServiceFromEnv = (): ContentService => {
 	return {
@@ -31,6 +31,6 @@ export const getContentServiceFromEnv = (): ContentService => {
 
 /**
  * Static execution of Service
- * @returns An EmailService instance
+ * @returns An ContentService instance
  */
 export const getContentService = (basePath: string): ContentService => ({ build: createDefaultContentProvider(basePath) })
