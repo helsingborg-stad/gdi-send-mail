@@ -101,9 +101,9 @@ DEBUG=* yarn start
 
 The service is configured through standard .env file
 
-- [Content provider](src/services/content/README.md)
-- [Mail send provider](src/services/email/README.md)
-- [Mail queue provider](src/services/queue/README.md)
+- [Content provider](src/services/content/README.MD)
+- [Mail send provider](src/services/email/README.MD)
+- [Mail queue provider](src/services/queue/README.MD)
 
 ## Local environment with docker
 
