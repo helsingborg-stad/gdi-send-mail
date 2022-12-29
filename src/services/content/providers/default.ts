@@ -1,10 +1,10 @@
 import { ContentBuildProvider } from '../service'
 
 /**
- * Default action prints the message to console
- * @returns An EmailSendProvider instance
+ * Example content provider
+ * @returns A ContentBuildProvider instance
  */
-export const createDefaultContentProvider = (basePath: string): ContentBuildProvider => async (message) => ({
-	subject: basePath,
-	body: message.verificationCode,
+export const createDefaultContentProvider = (verificationUrl: string): ContentBuildProvider => async (message) => ({
+	subject: 'default',
+	body: `${verificationUrl}${message.verificationCode}`,
 })
