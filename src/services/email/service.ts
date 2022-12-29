@@ -15,17 +15,12 @@ export interface EmailService {
 }
 
 /**
- * Handler for missing providers
- */
-const missingProvider = (): EmailSendProvider => { throw Error('Missing Email provider') }
-
-/**
  * Service instantiation from environment configuration
  * @returns An EmailService instance
  */
 export const getEmailServiceFromEnv = (): EmailService => {
 	return {
-		send: tryCreateHelsingborgFromEnv() || missingProvider(),
+		send: tryCreateHelsingborgFromEnv() || createDefaultEmailProvider(),
 	}
 }
 
