@@ -116,14 +116,16 @@ docker run -d --hostname my-rabbit --name some-rabbit -p 5672:5672 -p 888:15672 
 Ensure `.env` contains
 
 ```env
+QUEUE_PROVIDER=amqp
 AMQP_URI=amqp://user:password@localhost:5672
 AMQP_EXCHANGE=gdi-about-me-person-changed
 AMQP_QUEUE=mail-queue
 AMQP_FILTER=email.changed
-EMAIL_BASEPATH=https://helsingborg.se/verify?mail=
+CONTENT_PROVIDER=default
+CONTENT_VERIFICATION_PATH=https://helsingborg.se/verify?mail=
+EMAIL_PROVIDER=helsingborg
 EMAIL_PROXY_URL=<Secret, provided by devops>
 EMAIL_PROXY_KEY=<Secret, provided by devops>
-
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

@@ -1,6 +1,6 @@
 import { getEmailService } from '../services/email/service'
 
-it('returns a templated string with an injected verificationcode', async () => {
+it('executes successfully', async () => {
 	
 	const to = 'myaccount@account.se'
 	const content = {
